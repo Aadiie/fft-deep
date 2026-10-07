@@ -22,4 +22,4 @@ models/*.keras
 models/*.h5
 
 # Secrets / environment variables
-.env
+.env.DS_Store
