@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.py[oc]
+*.egg-info/
+build/
+dist/
+wheels/
+
+# Virtual environment
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data
+data/raw/
+data/processed/
+
+# Trained models
+models/*.keras
+models/*.h5
+
+# Secrets / environment variables
+.env
