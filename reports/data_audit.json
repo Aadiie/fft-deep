@@ -1,0 +1,181 @@
+{
+  "groups": {
+    "test/FAKE": {
+      "count": 10000,
+      "sizes": {
+        "32x32": 10000
+      },
+      "modes": {
+        "RGB": 10000
+      },
+      "formats": {
+        "JPEG": 10000
+      },
+      "extensions": {
+        ".jpg": 10000
+      },
+      "file_bytes": {
+        "mean": 924.1011,
+        "std": 64.67612912651776,
+        "min": 698,
+        "max": 1126
+      },
+      "mean_rgb": [
+        115.25,
+        112.81,
+        98.64
+      ]
+    },
+    "test/REAL": {
+      "count": 10000,
+      "sizes": {
+        "32x32": 10000
+      },
+      "modes": {
+        "RGB": 10000
+      },
+      "formats": {
+        "JPEG": 10000
+      },
+      "extensions": {
+        ".jpg": 10000
+      },
+      "file_bytes": {
+        "mean": 920.9662,
+        "std": 53.66140379788811,
+        "min": 697,
+        "max": 1102
+      },
+      "mean_rgb": [
+        125.99,
+        123.69,
+        114.85
+      ]
+    },
+    "train/FAKE": {
+      "count": 50000,
+      "sizes": {
+        "32x32": 50000
+      },
+      "modes": {
+        "RGB": 50000
+      },
+      "formats": {
+        "JPEG": 50000
+      },
+      "extensions": {
+        ".jpg": 50000
+      },
+      "file_bytes": {
+        "mean": 924.51858,
+        "std": 64.757965801773,
+        "min": 693,
+        "max": 1187
+      },
+      "mean_rgb": [
+        115.45,
+        113.14,
+        99.22
+      ]
+    },
+    "train/REAL": {
+      "count": 50000,
+      "sizes": {
+        "32x32": 50000
+      },
+      "modes": {
+        "RGB": 50000
+      },
+      "formats": {
+        "JPEG": 50000
+      },
+      "extensions": {
+        ".jpg": 50000
+      },
+      "file_bytes": {
+        "mean": 920.82502,
+        "std": 53.69574174922626,
+        "min": 692,
+        "max": 1124
+      },
+      "mean_rgb": [
+        125.27,
+        122.93,
+        113.86
+      ]
+    }
+  },
+  "n_corrupted": 0,
+  "corrupted": [],
+  "n_non_images": 1,
+  "non_image_examples": [
+    ".DS_Store"
+  ],
+  "n_unexpected_layout": 0,
+  "unexpected_examples": [],
+  "n_duplicate_groups": 1336,
+  "n_dup_groups_across_splits": 378,
+  "n_dup_groups_across_classes": 0,
+  "dup_examples": [
+    [
+      [
+        "test",
+        "FAKE",
+        "test/FAKE/0 (7).jpg"
+      ],
+      [
+        "train",
+        "FAKE",
+        "train/FAKE/3052 (7).jpg"
+      ]
+    ],
+    [
+      [
+        "test",
+        "FAKE",
+        "test/FAKE/1 (6).jpg"
+      ],
+      [
+        "train",
+        "FAKE",
+        "train/FAKE/1963 (6).jpg"
+      ]
+    ],
+    [
+      [
+        "test",
+        "FAKE",
+        "test/FAKE/101 (6).jpg"
+      ],
+      [
+        "train",
+        "FAKE",
+        "train/FAKE/3782 (6).jpg"
+      ]
+    ],
+    [
+      [
+        "test",
+        "FAKE",
+        "test/FAKE/104 (7).jpg"
+      ],
+      [
+        "train",
+        "FAKE",
+        "train/FAKE/4497 (7).jpg"
+      ]
+    ],
+    [
+      [
+        "test",
+        "FAKE",
+        "test/FAKE/105 (6).jpg"
+      ],
+      [
+        "train",
+        "FAKE",
+        "train/FAKE/2876 (6).jpg"
+      ]
+    ]
+  ]
+}
