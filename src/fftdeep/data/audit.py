@@ -1,4 +1,4 @@
-"""Audit an image dataset laid out as <root>/<split>/<class>/<image>."""
+"""Auditig  image dataset laid out as <root>/<split>/<class>/<image>."""
 from __future__ import annotations
 
 import argparse
@@ -39,7 +39,7 @@ def audit(root: Path) -> dict:
                 im.load()  # force full decode so truncated files fail here
                 fmt, mode, size = im.format, im.mode, im.size
                 arr = np.asarray(im.convert("RGB"))
-        except Exception as e:  # noqa: BLE001
+        except Exception as e:  
             corrupted.append((str(rel), repr(e)))
             continue
         s = stats[key]
@@ -49,7 +49,7 @@ def audit(root: Path) -> dict:
         s["formats"][fmt] += 1
         s["extensions"][p.suffix.lower()] += 1
         s["file_bytes"].append(p.stat().st_size)
-        s["channel_sum"] += arr.reshape(-1, 3).sum(axis=0)
+        s["channel_sum"] += arr.reshape(-1, 3).sum(axis=0) #
         s["pixel_count"] += arr.shape[0] * arr.shape[1]
         hashes[hashlib.md5(arr.tobytes()).hexdigest()].append((split, cls, str(rel)))
 
