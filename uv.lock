@@ -741,7 +741,6 @@ dependencies = [
     { name = "scikit-learn" },
     { name = "seaborn" },
     { name = "tensorflow" },
-    { name = "tensorflow-metal-plugin" },
 ]
 
 [package.dev-dependencies]
@@ -759,7 +758,6 @@ requires-dist = [
     { name = "scikit-learn", specifier = ">=1.9.1" },
     { name = "seaborn", specifier = ">=0.13.2" },
     { name = "tensorflow", specifier = ">=2.21.0" },
-    { name = "tensorflow-metal-plugin", specifier = ">=0.4.1" },
 ]
 
 [package.metadata.requires-dev]
@@ -3320,15 +3318,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/86/6c/10d075ffc09754c7f10e749ba3c9d46dd809fb007990c7f788128044180c/tensorflow-2.21.0-cp313-cp313-manylinux_2_27_x86_64.whl", hash = "sha256:e9d8da8dcab9650efb45f032ba70af2f016f907e6e0c6bda29dd101bba945406", size = 572881074, upload-time = "2026-03-06T17:25:14.453Z" },
     { url = "https://files.pythonhosted.org/packages/86/91/dedad8403e7b0036d99be4878987693b7b7f62097eb8537fa6ce62ea131c/tensorflow-2.21.0-cp313-cp313-win_amd64.whl", hash = "sha256:76cccbe0a95d9392dee1ae501ae0656b6c73c1cac29a7f8f32d570e0670863f7", size = 351205371, upload-time = "2026-03-06T17:25:33.144Z" },
 ]
-
-[[package]]
-name = "tensorflow-metal-plugin"
-version = "0.4.1"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "tensorflow" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/81/b6/acef39ccd9ffabf06d66b33ed3322e7aa4dba096c979597b4d2c23e76abc/tensorflow_metal_plugin-0.4.1.tar.gz", hash = "sha256:7ce3f583d679fc4fda2f0aec1ab497681c0faf986e12912028b5159ecfcf2bd7", size = 283141, upload-time = "2026-09-22T16:43:42.59Z" }
 
 [[package]]
 name = "termcolor"
