@@ -5,13 +5,16 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "fastapi>=0.162.0",
     "matplotlib>=3.11.2",
     "numpy>=2.4.6",
     "pandas>=3.0.6",
     "pillow>=12.3.0",
+    "python-multipart>=0.0.32",
     "scikit-learn>=1.9.1",
     "seaborn>=0.13.2",
     "tensorflow>=2.21.0",
+    "uvicorn>=0.54.0",
 ]
 [build-system]
 requires = ["hatchling"]
@@ -22,6 +25,7 @@ packages = ["src/fftdeep"]
 
 [dependency-groups]
 dev = [
+    "httpx>=0.28.1",
     "jupyter>=1.1.1",
     "pytest>=9.1.1",
 ]
