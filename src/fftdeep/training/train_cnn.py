@@ -1,4 +1,4 @@
-#Train a CNN on the cleaned train split, validate on val, save model + history
+#Train a CNN on the cleaned train split, validate on val, save model + history.
 from __future__ import annotations
 
 import argparse
@@ -11,7 +11,7 @@ from fftdeep.models.cnn import build_cnn, compile_model
 from fftdeep.paths import PROJECT_ROOT
 
 VARIANTS = {
-    "baseline": dict(convs_per_block=1, batch_norm=False),  
+    "baseline": dict(convs_per_block=1, batch_norm=False),  # video-style
     "deeper": dict(convs_per_block=2, batch_norm=True),
 }
 
@@ -22,7 +22,12 @@ def main() -> None:
     ap.add_argument("--epochs", type=int, default=30)
     ap.add_argument("--batch-size", type=int, default=128)
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--reduce-lr", action="store_true",
+                    help="halve the learning rate when val_loss stops improving")
+    ap.add_argument("--tag", default="", help="suffix for output file names")
     args = ap.parse_args()
+
+    run_name = args.variant + (f"_{args.tag}" if args.tag else "")
 
     keras.utils.set_random_seed(args.seed)
     Xtr, ytr = get_arrays("train")
@@ -30,10 +35,16 @@ def main() -> None:
     Xtr, Xva = Xtr.astype("float32"), Xva.astype("float32")
     ytr, yva = ytr.astype("float32"), yva.astype("float32")
 
-    model = compile_model(build_cnn(name=f"cnn_{args.variant}", **VARIANTS[args.variant]))
+    model = compile_model(build_cnn(name=f"cnn_{run_name}", **VARIANTS[args.variant]))
     callbacks = [
         keras.callbacks.EarlyStopping(monitor="val_loss", patience=5, restore_best_weights=True)
     ]
+    if args.reduce_lr:
+        callbacks.append(
+            keras.callbacks.ReduceLROnPlateau(
+                monitor="val_loss", factor=0.5, patience=2, min_lr=1e-5
+            )
+        )
     history = model.fit(
         Xtr, ytr,
         validation_data=(Xva, yva),
@@ -47,10 +58,10 @@ def main() -> None:
     reports_dir = PROJECT_ROOT / "reports"
     models_dir.mkdir(exist_ok=True)
     reports_dir.mkdir(exist_ok=True)
-    model.save(models_dir / f"cnn_{args.variant}.keras")
+    model.save(models_dir / f"cnn_{run_name}.keras")
 
     hist = {k: [float(v) for v in vals] for k, vals in history.history.items()}
-    (reports_dir / f"history_{args.variant}.json").write_text(json.dumps(hist, indent=2))
+    (reports_dir / f"history_{run_name}.json").write_text(json.dumps(hist, indent=2))
 
     best = min(range(len(hist["val_loss"])), key=hist["val_loss"].__getitem__)
     print(f"best epoch: {best + 1}  val_loss={hist['val_loss'][best]:.4f}  "
