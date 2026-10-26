@@ -2,7 +2,7 @@
 
 A small, honest study of detecting AI-generated images on the CIFAKE dataset (CIFAR-10 photos vs Stable Diffusion images, 32×32). It covers data auditing, leakage control, baselines, a CNN, FFT (frequency) features, Grad-CAM and a FastAPI service.
 
-Author: <Aditya Dhamala>
+Author: Aditya Dhamala
 
 ## Summary
 
